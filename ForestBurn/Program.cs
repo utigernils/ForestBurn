@@ -14,7 +14,8 @@ namespace ForestFireSimulation
                 burningChance: 2,
                 regrowChance: 20,
                 autoIgnite: true,
-                waitBeforeNewFire: 3000
+                waitBeforeNewFire: 3000,
+                legacyDisplayMode: false
             );
             
             var simulation = new Simulation(config);

@@ -14,8 +14,9 @@ namespace ForestFireSimulation.Core
         private readonly Random _random;
         private readonly int _burningChance;
         private readonly RegrowthManager _regrowthManager; 
+        private readonly bool _displayMode;
 
-        public Forest(int width, int height, int burningChance, int regrowthChance)
+        public Forest(int width, int height, int burningChance, int regrowthChance, bool displayMode)
         {
             _width = width;
             _height = height;
@@ -23,6 +24,7 @@ namespace ForestFireSimulation.Core
             _burningChance = burningChance;
             _trees = new List<Tree>();
             _regrowthManager = new RegrowthManager(regrowthChance);
+            _displayMode = displayMode;
 
             InitializeForest();
         }
@@ -33,7 +35,7 @@ namespace ForestFireSimulation.Core
             {
                 for (int x = 0; x < _width; x++)
                 {
-                    _trees.Add(new Tree(x, y));
+                    _trees.Add(new Tree(x, y, _displayMode));
                 }
             }
         }

@@ -9,6 +9,8 @@ namespace ForestFireSimulation.Utils
         public int RegrowChance { get; }
         public bool AutoIgnite { get; }
         public int WaitBeforeNewFire { get; }
+        
+        public bool DisplayMode { get; }
 
         public SimulationConfig(
             int width = 20,
@@ -17,7 +19,8 @@ namespace ForestFireSimulation.Utils
             int burningChance = 4,
             int regrowChance = 4,
             bool autoIgnite = true,
-            int waitBeforeNewFire = 2000)
+            int waitBeforeNewFire = 2000,
+            bool legacyDisplayMode = false)
         {
             Width = width;
             Height = height;
@@ -26,6 +29,7 @@ namespace ForestFireSimulation.Utils
             RegrowChance = regrowChance;
             AutoIgnite = autoIgnite;
             WaitBeforeNewFire = waitBeforeNewFire;
+            DisplayMode = legacyDisplayMode;
         }
     }
 }

@@ -7,16 +7,18 @@ namespace ForestFireSimulation.Entities
         public int X { get; }
         public int Y { get; }
         public TreeState State { get; private set; }
+        public bool DisplayMode { get; }
         
         private int BurningTurns { get; set; }
         private const int MaxBurningTurns = 3;
 
-        public Tree(int x, int y)
+        public Tree(int x, int y, bool displayMode)
         {
             X = x;
             Y = y;
             State = TreeState.Alive;
             BurningTurns = 0;
+            DisplayMode = displayMode;
         }
 
         public void Ignite()
@@ -51,22 +53,41 @@ namespace ForestFireSimulation.Entities
 
         public void Display()
         {
-            switch (State)
+            if (DisplayMode)
             {
-                case TreeState.Alive:
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.Write("\u259a\u259a");
-                    break;
-                case TreeState.Burning:
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.Write("\u2593\u2593");
-                    break;
-                case TreeState.Burned:
-                    Console.ForegroundColor = ConsoleColor.DarkGray;
-                    Console.Write("\u2591\u2591");
-                    break;
+                switch (State)
+                {
+                    case TreeState.Alive:
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.Write("\u259a\u259a");
+                        break;
+                    case TreeState.Burning:
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.Write("\u2593\u2593");
+                        break;
+                    case TreeState.Burned:
+                        Console.ForegroundColor = ConsoleColor.DarkGray;
+                        Console.Write("\u2591\u2591");
+                        break;
+                }
+                Console.ResetColor();
             }
-            Console.ResetColor();
+            else
+            {
+                switch (State)
+                {
+                    case TreeState.Alive:
+                        Console.Write("\ud83c\udf32");
+                        break;
+                    case TreeState.Burning:
+                        Console.Write("\ud83d\udd25");
+                        break;
+                    case TreeState.Burned:
+                        Console.Write("  ");
+                        break;
+                }
+            }
+
         }
     }
 }
