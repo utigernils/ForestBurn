@@ -55,15 +55,15 @@ namespace ForestFireSimulation.Entities
             {
                 case TreeState.Alive:
                     Console.ForegroundColor = ConsoleColor.Green;
-                    Console.Write("♣");
+                    Console.Write("\u259a\u259a");
                     break;
                 case TreeState.Burning:
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.Write("♨");
+                    Console.Write("\u2593\u2593");
                     break;
                 case TreeState.Burned:
                     Console.ForegroundColor = ConsoleColor.DarkGray;
-                    Console.Write("░");
+                    Console.Write("\u2591\u2591");
                     break;
             }
             Console.ResetColor();
