@@ -8,17 +8,19 @@ namespace ForestFireSimulation.Core
 {
     public class Forest
     {
-        private readonly List<Tree> _trees; // 1-n association
+        private readonly List<Tree> _trees; 
         private readonly int _width;
         private readonly int _height;
         private readonly Random _random;
-        private readonly RegrowthManager _regrowthManager;
+        private readonly int _burningChance;
+        private readonly RegrowthManager _regrowthManager; 
 
-        public Forest(int width, int height)
+        public Forest(int width, int height, int burningChance)
         {
             _width = width;
             _height = height;
             _random = new Random();
+            _burningChance = burningChance;
             _trees = new List<Tree>();
             _regrowthManager = new RegrowthManager();
 
@@ -39,31 +41,33 @@ namespace ForestFireSimulation.Core
         public void Update()
         {
             var newBurningTrees = new List<Tree>();
+            
+            var random = new Random();
 
-            // Handle fire spreading
             foreach (var tree in _trees)
             {
                 if (tree.State == TreeState.Burning)
                 {
-                    // Spread fire to neighbors
                     foreach (var neighbor in GetNeighbors(tree))
                     {
                         if (neighbor.State == TreeState.Alive)
                         {
-                            newBurningTrees.Add(neighbor);
+                            if (random.Next(_burningChance) == 0)
+                            {
+                                newBurningTrees.Add(neighbor);
+                            }
                         }
                     }
                     tree.Update();
                 }
             }
 
-            // Ignite new trees
+            
             foreach (var tree in newBurningTrees)
             {
                 tree.Ignite();
             }
-
-            // Handle regrowth
+            
             foreach (var tree in _trees.Where(t => t.State == TreeState.Burned))
             {
                 _regrowthManager.UpdateRegrowth(tree);

@@ -8,9 +8,10 @@ namespace ForestFireSimulation
         static void Main(string[] args)
         {
             var config = new SimulationConfig(
-                width: 30,
-                height: 20,
-                updateDelay: 200,
+                width: 20,
+                height: 10,
+                updateDelay: 20,
+                burningChance: 4,
                 autoIgnite: true,
                 waitBeforeNewFire: 2000
             );
