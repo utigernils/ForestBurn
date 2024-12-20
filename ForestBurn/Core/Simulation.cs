@@ -30,7 +30,13 @@ namespace ForestFireSimulation.Core
                 
                 if (!_forest.HasActiveFire() && _config.AutoIgnite)
                 {
-                    Thread.Sleep(_config.WaitBeforeNewFire);
+                    for (int i = 0; i < _config.WaitBeforeNewFire/_config.UpdateDelay; i++)
+                    {
+                        _forest.Update();
+                        _forest.Display();
+                        Thread.Sleep(_config.UpdateDelay);
+                    }
+                    
                     _forest.IgniteRandomTree();
                 }
 
