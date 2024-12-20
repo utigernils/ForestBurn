@@ -6,11 +6,17 @@ namespace ForestFireSimulation.Utils
     public class RegrowthManager
     {
         private readonly Random _random = new Random();
-        private const int RegrowthChancePercent = 5;
+        private readonly int regrowChance;
+      
+
+        public RegrowthManager(int regrowChance)
+        {
+            this.regrowChance = regrowChance;
+        }
         
         public void UpdateRegrowth(Tree tree)
         {
-            if (tree.State == TreeState.Burned && _random.Next(100) < RegrowthChancePercent)
+            if (tree.State == TreeState.Burned && _random.Next(this.regrowChance) == 0)
             {
                 tree.Regrow();
             }

@@ -15,14 +15,14 @@ namespace ForestFireSimulation.Core
         private readonly int _burningChance;
         private readonly RegrowthManager _regrowthManager; 
 
-        public Forest(int width, int height, int burningChance)
+        public Forest(int width, int height, int burningChance, int regrowthChance)
         {
             _width = width;
             _height = height;
             _random = new Random();
             _burningChance = burningChance;
             _trees = new List<Tree>();
-            _regrowthManager = new RegrowthManager();
+            _regrowthManager = new RegrowthManager(regrowthChance);
 
             InitializeForest();
         }

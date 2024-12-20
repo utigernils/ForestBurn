@@ -13,7 +13,7 @@ namespace ForestFireSimulation.Core
         public Simulation(SimulationConfig config)
         {
             _config = config;
-            _forest = new Forest(config.Width, config.Height, config.BurningChance);
+            _forest = new Forest(config.Width, config.Height, config.BurningChance, config.RegrowChance);
         }
 
         public void Start()

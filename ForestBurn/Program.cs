@@ -10,10 +10,11 @@ namespace ForestFireSimulation
             var config = new SimulationConfig(
                 width: 40,
                 height: 10,
-                updateDelay: 20,
-                burningChance: 4,
+                updateDelay: 500,
+                burningChance: 3,
+                regrowChance: 20,
                 autoIgnite: true,
-                waitBeforeNewFire: 2000
+                waitBeforeNewFire: 3000
             );
             
             var simulation = new Simulation(config);
