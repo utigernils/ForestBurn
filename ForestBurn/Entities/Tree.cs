@@ -2,24 +2,21 @@ using System;
 
 namespace ForestFireSimulation.Entities
 {
-    public class Tree
+    public class Tree : Cell
     {
-        public int X { get; }
-        public int Y { get; }
         public TreeState State { get; private set; }
         public bool DisplayMode { get; }
-        
+
         private int BurningTurns { get; set; }
         private const int MaxBurningTurns = 3;
 
-        public Tree(int x, int y, bool displayMode)
+        public Tree(int x, int y, bool displayMode) : base(x, y)
         {
-            X = x;
-            Y = y;
             State = TreeState.Alive;
             BurningTurns = 0;
             DisplayMode = displayMode;
         }
+
 
         public void Ignite()
         {
