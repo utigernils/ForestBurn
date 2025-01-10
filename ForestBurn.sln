@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ForestBurn", "ForestBurn\ForestBurn.csproj", "{DF604C3E-4E7F-4485-94EB-056AA8B270E9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "UnitTest\UnitTest.csproj", "{FE72A3B7-73F3-4346-A430-6EEE640F4DE2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{DF604C3E-4E7F-4485-94EB-056AA8B270E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DF604C3E-4E7F-4485-94EB-056AA8B270E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DF604C3E-4E7F-4485-94EB-056AA8B270E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE72A3B7-73F3-4346-A430-6EEE640F4DE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE72A3B7-73F3-4346-A430-6EEE640F4DE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE72A3B7-73F3-4346-A430-6EEE640F4DE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE72A3B7-73F3-4346-A430-6EEE640F4DE2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
